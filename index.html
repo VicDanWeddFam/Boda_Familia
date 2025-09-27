@@ -78,10 +78,6 @@
   <header>
     <div class="container nav">
       <div class="brand" data-i18n="brand">Nombre & Nombre</div>
-      <nav class="tabs" aria-label="Secciones">
-        <a class="tab" href="#invitacion" data-i18n="tab_inv">Invitación</a>
-        <a class="tab" href="#contacto" data-i18n="tab_cta">Contacto</a>
-      </nav>
       <div class="lang-switch" role="group" aria-label="Idioma">
         <button class="chip" data-lang="es" aria-pressed="true">ES</button>
         <button class="chip" data-lang="ca">VAL</button>
@@ -177,7 +173,7 @@
     // Diccionario ES / Valencià
 const i18n = {
   es: {
-    brand: "Nombre & Nombre",
+    brand: "Danay y Vicent",
     tab_inv: "Invitación",
     tab_cta: "Contacto",
     kicker: "¡Nos casamos!",
@@ -215,7 +211,7 @@ const i18n = {
     foot: "Con ❤️, Nombre & Nombre · 2025"
   },
   ca: {
-    brand: "Nom & Nom",
+    brand: "Vicent & Danay",
     tab_inv: "Invitació",
     tab_cta: "Contacte",
     kicker: "Ens casem!",
@@ -228,7 +224,7 @@ const i18n = {
     when: "Quan:",
     where: "On:",
     dress: "Codi de vestimenta:",
-    when_val: "Dissabte, 25 d'octubre de 2025 · 17:00",
+    when_val: "Diumenge, 3 de maig de 2026  ·  12h",
     where_val: "Masia Sant Agustí, Montcada (València).",
     dress_val: "Còctel",
     parking: "Aparcament disponible",
@@ -264,7 +260,7 @@ const i18n = {
         const key = node.getAttribute('data-i18n');
         if (dict[key] !== undefined){
           if (key === 'inv_text_3') {
-            const fecha = lang === 'ca' ? '1 de setembre' : '1 de septiembre';
+            const fecha = lang === 'ca' ? '1 de gener' : '1 de enero';
             node.innerHTML = dict[key] + '<strong>' + fecha + '</strong>.';
           } else {
             node.textContent = dict[key];
