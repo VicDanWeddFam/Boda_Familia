@@ -41,32 +41,33 @@
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .muted{color:var(--muted)}
 
-    /* Slideshow base */
-    .slideshow{
-      position:relative;
-      height:var(--slide-h, clamp(110px, 40vw, 210px));
-      border:1px solid var(--ring);
-      border-radius:16px;
-      overflow:hidden;
-      background:var(--card);
-      width:100%;
-      max-width:640px;
-      margin-inline:auto;
+    /* --- Slideshow (Opción 2: “fijo” pero adaptable) --- */
+    .slideshow {
+      position: relative;
+      border: 1px solid var(--ring);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--card); /* color de fondo/barras */
+      margin-inline: auto;     /* centrar */
+    }
+    /* Controla el tamaño aquí: --w = ancho adaptable; --h = alto fijo */
+    .slideshow.box {
+      --w: clamp(280px, 90vw, 640px); /* cambia límites a tu gusto */
+      --h: 280px;                     /* alto fijo: cámbialo si quieres */
+      inline-size: var(--w);
+      block-size: var(--h);
     }
     .slideshow img{
-      position:absolute;inset:0;width:100%;height:100%;
-      object-fit:cover; /* por defecto: cubrir */
-      opacity:0;transition:opacity .8s
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: contain;      /* clave: no recorta ni deforma */
+      object-position: center;  /* centra la imagen */
+      opacity:0;
+      transition: opacity .8s;
     }
-    .slideshow img.active{opacity:1}
-
-    /* Tamaños del slideshow */
-    .slideshow.sm { --slide-h: 150px; }
-    .slideshow.md { --slide-h: 200px; }
-    .slideshow.lg { --slide-h: 260px; }
-
-    /* Encajar imágenes sin recorte cuando el contenedor tiene la clase .contain */
-    .slideshow.contain img{ object-fit:contain; object-position:center; }
+    .slideshow img.active{ opacity:1; }
 
     .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden}
     .map-wrap iframe{width:100%;height:360px;border:0}
@@ -89,10 +90,10 @@
   </header>
 
   <main id="contenido" class="container">
-    <!-- Galería / Slideshow (arriba, debajo del encabezado) -->
+    <!-- Galería / Slideshow -->
     <section id="fotos" aria-labelledby="titulo-fotos">
       <h2 id="titulo-fotos" data-i18n="photos_title">¡NOS CASAMOS!</h2>
-      <div class="slideshow sm contain" aria-live="off">
+      <div class="slideshow box" aria-live="off">
         <img id="slideA" alt="Foto 1" loading="lazy" decoding="async" />
         <img id="slideB" alt="Foto 2" loading="lazy" decoding="async" />
       </div>
@@ -285,7 +286,7 @@
       btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
     });
 
-    // Idioma inicial (una sola vez)
+    // Idioma inicial
     const saved = (()=>{ try{return localStorage.getItem('lang')}catch{return null} })();
     setLang(saved || (navigator.language.startsWith('ca') ? 'ca' : 'es'));
 
