@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -94,19 +95,29 @@
           <p><strong data-i18n="whatsapp">WhatsApp:</strong> <a href="https://wa.me/34111222333" target="_blank" rel="noopener">Abrir chat</a></p>
         </div>
         <div class="card">
-          <form action="mailto:tunombre@example.com" method="post" enctype="text/plain">
+          <form id="rsvpForm" action="https://formspree.io/f/xqayeqla" method="POST" novalidate>
             <label>
               <span data-i18n="form_name">Nombre</span><br />
-              <input required name="Nombre" type="text" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
+              <input required name="name" type="text" placeholder="Tu nombre" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
+            </label>
+            <br /><br />
+            <label>
+              <span data-i18n="form_email">Email (opcional)</span><br />
+              <input name="_replyto" type="email" placeholder="tu@email.com" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
             </label>
             <br /><br />
             <label>
               <span data-i18n="form_msg">Mensaje</span><br />
-              <textarea required name="Mensaje" rows="4" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px"></textarea>
+              <textarea required name="message" rows="4" placeholder="Tu mensaje" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px"></textarea>
             </label>
+            <!-- honeypot anti-spam -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <!-- asunto por defecto; lo sobreescribimos en JS con el nombre -->
+            <input type="hidden" name="_subject" value="Mensaje desde la web de la boda" />
             <br />
             <button class="btn" type="submit" data-i18n="form_send">Enviar</button>
-            <p style="color:var(--muted);font-size:12px" data-i18n="form_note">El botón abrirá tu gestor de correo para enviar el mensaje.</p>
+            <p id="formStatus" role="status" aria-live="polite" style="margin-top:8px;color:var(--muted);font-size:12px"></p>
+            <p style="color:var(--muted);font-size:12px" data-i18n="form_note">El formulario enviará el mensaje al correo configurado.</p>
           </form>
         </div>
       </div>
@@ -147,7 +158,11 @@
         form_name: "Nombre",
         form_msg: "Mensaje",
         form_send: "Enviar",
-        form_note: "El botón abrirá tu gestor de correo para enviar el mensaje.",
+        form_note: "El formulario enviará el mensaje al correo configurado.",
+        form_success: "¡Gracias! Hemos recibido tu mensaje.",
+        form_error: "Ups… no se ha podido enviar. Inténtalo de nuevo en un rato.",
+        form_required_name: "Por favor, escribe tu nombre.",
+        form_required_msg: "Por favor, escribe un mensaje.",
         foot: "Con ❤️, Nombre & Nombre · 2025"
       },
       ca: {
@@ -177,7 +192,11 @@
         form_name: "Nom",
         form_msg: "Missatge",
         form_send: "Enviar",
-        form_note: "El botó obrirà el teu gestor de correu per a enviar el missatge.",
+        form_note: "El formulari enviarà el missatge al correu configurat.",
+        form_success: "Gràcies! Hem rebut el teu missatge.",
+        form_error: "Ups… no s'ha pogut enviar. Torna-ho a intentar més tard.",
+        form_required_name: "Per favor, escriu el teu nom.",
+        form_required_msg: "Per favor, escriu un missatge.",
         foot: "Amb ❤️, Nom & Nom · 2025"
       }
     };
@@ -220,6 +239,42 @@
 
     // Idioma inicial
     const saved = (()=>{ try{return localStorage.getItem('lang')}catch{return null} })();
+    setLang(saved || (navigator.language.startsWith('ca') ? 'ca' : 'es'));
+
+    // ---- Envío del formulario (Formspree AJAX) ----
+    const form = document.getElementById('rsvpForm');
+    const statusEl = document.getElementById('formStatus');
+
+    async function submitForm(event){
+      event.preventDefault();
+      statusEl.textContent = '';
+      const lang = document.documentElement.lang === 'ca' ? 'ca' : 'es';
+      const dict = i18n[lang];
+
+      const formData = new FormData(form);
+      const name = (formData.get('name')||'').toString().trim();
+      const message = (formData.get('message')||'').toString().trim();
+      if(!name){ statusEl.textContent = dict.form_required_name; return; }
+      if(!message){ statusEl.textContent = dict.form_required_msg; return; }
+
+      // IMPORTANTE: sustituye XXXXXXXX por tu ID de Formspree
+      const endpoint = form.getAttribute('action');
+
+      try{
+        const res = await fetch(endpoint, { method:'POST', body: formData, headers: { 'Accept':'application/json' } });
+        if(res.ok){
+          statusEl.textContent = dict.form_success;
+          form.reset();
+        } else {
+          statusEl.textContent = dict.form_error;
+        }
+      }catch(err){
+        statusEl.textContent = dict.form_error;
+      }
+    }
+
+    form?.addEventListener('submit', submitForm);
+
     setLang(saved || (navigator.language.startsWith('ca') ? 'ca' : 'es'));
   </script>
 </body>
