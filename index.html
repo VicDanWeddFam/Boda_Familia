@@ -44,13 +44,14 @@
     .slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
     .slideshow img.active{opacity:1}
     /* Opciones de tamaño adaptable */
-    .slideshow.ratio-16x9{height:auto;aspect-ratio:16/9}
-    .slideshow.ratio-4x3{height:auto;aspect-ratio:4/3}
-    .slideshow.ratio-1x1{height:auto;aspect-ratio:1/1}
-    .slideshow.ratio-3x4{height:auto;aspect-ratio:3/4}
-    .slideshow.ratio-2x3{height:auto;aspect-ratio:2/3}
-    /* Evita recorte si prefieres encajar la imagen en lugar de cubrir */
-    .slideshow.contain img{object-fit:contain}
+    /* Tamaños del slideshow */
+    .slideshow.sm { --slide-h: 150px; }      
+    .slideshow.md { --slide-h: 200px; }
+    .slideshow.lg { --slide-h: 260px; }
+    
+    /* Evita que cambie de tamaño al rotar imágenes muy verticales u horizontales */
+    .slideshow { width: 100%; max-width: 640px; margin-inline: auto; }
+
     .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden}
     .map-wrap iframe{width:100%;height:360px;border:0}
   </style>
@@ -75,11 +76,10 @@
     <!-- Galería / Slideshow (arriba, debajo del encabezado) -->
     <section id="fotos" aria-labelledby="titulo-fotos">
       <h2 id="titulo-fotos" data-i18n="photos_title">¡NOS CASAMOS!</h2>
-      <div class="slideshow ratio-2x3 contain" aria-live="off">
-        <img id="slideA" alt="Foto 1" />
-        <img id="slideB" alt="Foto 2" />
-      </div>
-      <p class="muted" data-i18n="photos_note">Consejo: sustituye las rutas del array <code>photos</code> por tus imágenes del repositorio.</p>
+        <div class="slideshow sm contain" aria-live="off">
+          <img id="slideA" alt="Foto 1" loading="lazy" decoding="async" />
+          <img id="slideB" alt="Foto 2" loading="lazy" decoding="async" />
+        </div>
     </section>
 
     <section class="hero" id="invitacion">
