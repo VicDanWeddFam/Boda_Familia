@@ -15,7 +15,7 @@
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
     a{color:inherit}
-    .container{max-width:900px;margin:0 auto;padding:24px}
+    .container{max-width:980px;margin:0 auto;padding:24px}
     header{position:sticky;top:0;background:rgba(250,249,247,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--ring);z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{font-weight:700;letter-spacing:.5px}
@@ -57,6 +57,13 @@
       inline-size: var(--w);
       block-size: var(--h);
     }
+    .slideshow-title{
+      margin: 0 0 12px;             /* separa del carrusel */
+      font-size: clamp(18px, 2.6vw, 26px);
+      font-weight: 700;
+      text-align: center;           /* <-- centra el texto */
+    }
+
     .slideshow img{
       position:absolute;
       inset:0;
