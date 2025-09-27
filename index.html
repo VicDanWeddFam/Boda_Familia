@@ -39,11 +39,12 @@
     .list{padding-left:18px}
     .list li{margin:6px 0}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .muted{color:var(--muted)}
+  .muted{color:var(--muted)}
     .slideshow{position:relative;height:320px;border:1px solid var(--ring);border-radius:16px;overflow:hidden;background:var(--card)}
     .slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s}
     .slideshow img.active{opacity:1}
-
+    .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden}
+    .map-wrap iframe{width:100%;height:360px;border:0}
   </style>
 </head>
 <body>
@@ -63,25 +64,22 @@
   </header>
 
   <main id="contenido" class="container">
+    <!-- Galería / Slideshow (arriba, debajo del encabezado) -->
+    <section id="fotos" aria-labelledby="titulo-fotos">
+      <h2 id="titulo-fotos" data-i18n="photos_title">Fotos</h2>
+      <div class="slideshow" aria-live="off">
+        <img id="slideA" alt="Foto 1" />
+        <img id="slideB" alt="Foto 2" />
+      </div>
+      <p class="muted" data-i18n="photos_note">Consejo: sustituye las rutas del array <code>photos</code> por tus imágenes del repositorio.</p>
+    </section>
+
     <section class="hero" id="invitacion">
       <p class="kicker" data-i18n="kicker">¡Nos casamos!</p>
       <h1 data-i18n="hero_title">Acompáñanos en un día muy especial</h1>
       <p data-i18n="hero_sub">Aquí encontrarás toda la información esencial de la celebración.</p>
       <a class="btn" href="#contacto" data-i18n="hero_btn">Escríbenos</a>
     </section>
-
-      <!-- Galería / Slideshow -->
-  <section id="fotos" aria-labelledby="titulo-fotos">
-    <h2 id="titulo-fotos" data-i18n="photos_title">Fotos</h2>
-    <div class="slideshow" aria-live="off">
-      <img id="slideA" alt="Foto 1" />
-      <img id="slideB" alt="Foto 2" />
-    </div>
-    <p class="muted" data-i18n="photos_note">
-      Consejo: las imágenes se cogen del array <code>photos</code> del script.
-    </p>
-  </section>
-
 
     <section aria-labelledby="titulo-inv">
       <h2 id="titulo-inv" data-i18n="inv_title">Invitación</h2>
@@ -102,14 +100,24 @@
       </div>
     </section>
 
+    <!-- Mapa -->
+    <section id="mapa" aria-labelledby="titulo-mapa">
+      <h2 id="titulo-mapa" data-i18n="map_title">Cómo llegar</h2>
+      <div class="map-wrap">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://www.google.com/maps?q=Masia%20San%20Agust%C3%ADn%2C%20Moncada%20(Val%C3%A8ncia)&output=embed">
+        </iframe>
+      </div>
+    </section>
+
     <section id="contacto" aria-labelledby="titulo-ct">
       <h2 id="titulo-ct" data-i18n="ct_title">Contacto</h2>
       <div class="row">
         <div class="card">
           <p data-i18n="ct_text">Para cualquier duda o para confirmar asistencia:</p>
           <p><strong data-i18n="email">Email:</strong> <a href="mailto:tunombre@example.com">tunombre@example.com</a></p>
-          <p><strong data-i18n="phone">Teléfono Vicent:</strong> <a href="tel:+34 111 222 333">+34 680283828</a></p>
-          <p><strong data-i18n="phone">Teléfono Danay:</strong> <a href="tel:+34 111 222 333">+34 642333158</a></p>
+          <p><strong data-i18n="phone">Teléfono:</strong> <a href="tel:+34111222333">+34 111 222 333</a></p>
+          
         </div>
         <div class="card">
           <form id="rsvpForm" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
@@ -172,6 +180,9 @@
         form_error: "Ups… no se ha podido enviar. Inténtalo de nuevo en un rato.",
         form_required_name: "Por favor, escribe tu nombre.",
         form_required_msg: "Por favor, escribe un mensaje.",
+        photos_title: "Fotos",
+        photos_note: "Consejo: sustituye las rutas del array photos en el script por tus imágenes del repositorio.",
+        map_title: "Cómo llegar",
         foot: "Con ❤️, Nombre & Nombre · 2025"
       },
       ca: {
@@ -206,6 +217,9 @@
         form_error: "Ups… no s'ha pogut enviar. Torna-ho a intentar més tard.",
         form_required_name: "Per favor, escriu el teu nom.",
         form_required_msg: "Per favor, escriu un missatge.",
+        photos_title: "Fotos",
+        photos_note: "Consell: substitueix les rutes de l'array photos al script per les teues imatges del repositori.",
+        map_title: "Com arribar",
         foot: "Amb ❤️, Nom & Nom · 2025"
       }
     };
