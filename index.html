@@ -15,8 +15,8 @@
   <style>
     :root{
       /* Paleta oliva suau */
-      --bg:#e6eee3;           /* fons verd oliva un punt més fosc */
-      --card:#f3f6f1;         /* targetes */
+      --bg:#a4c478;           /* fons verd oliva un punt més fosc */
+      --card:#e6eee3;         /* targetes */
       --ink:#1d1d1f;          /* text principal */
       --muted:#556158;        /* text mut */
       --accent:#4f8a4f;       /* botó/accents verds */
@@ -69,8 +69,6 @@
     }
 
     .calligraphy .big{ font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive; font-weight:400; text-align:center; color:var(--olive-ink); font-size:clamp(40px,8vw,84px); line-height:1; margin:0 0 4px; letter-spacing:.6px; }
-    .calligraphy .divider{margin-top:6px;height:10px;display:flex;align-items:center;justify-content:center}
-    .calligraphy .divider::before{content:"✿"; opacity:.4; font-size:14px}
 
     /* --- Slideshow (Opción 2: “fijo” pero adaptable) --- */
     .slideshow { position: relative; border: 1px solid var(--ring); border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
@@ -106,7 +104,7 @@
 
   <!--    RECUADRO DE LAS FOTOS -->
   <section id="fotos" aria-labelledby="titulo-fotos">
-    <h2 id="titulo-fotos" class="slideshow-title" data-i18n="photos_title">¡ NOS CASAMOS !</h2>
+    <h2 id="titulo-fotos" class="sr-only" data-i18n="photos_title">¡ NOS CASAMOS !</h2>
     <div class="slideshow box" aria-live="off">
       <img id="slideA" alt="Foto 1" loading="lazy" decoding="async" />
       <img id="slideB" alt="Foto 2" loading="lazy" decoding="async" />
