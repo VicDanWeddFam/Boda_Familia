@@ -73,7 +73,7 @@
     }
 
     /* Slideshow */
-    .slideshow { position: relative; border: 1px solid var(--ring); border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
+    .slideshow { position: relative; border: none; border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
     .slideshow.box { --w: clamp(280px, 60vw, 600px); --h: clamp(280px, 70vw, 600px); inline-size: var(--w); block-size: var(--h); }
     .slideshow-title{ margin: 0 0 12px; font-size: clamp(18px, 2.6vw, 26px); font-weight: 700; text-align: center; }
     .slideshow img{
@@ -508,7 +508,7 @@ function swap(){
 // Inicialitza
 if (photos.length){ setImg(imgA, photos[0]); imgA.classList.add('active'); }
 if (photos.length>1){ setImg(imgB, photos[1]); idx = 1; showingA = false; }
-if (photos.length>1){ setInterval(swap, 5000); }
+if (photos.length>1){ setInterval(swap, 3800); }
 
 // ---- Botó "Afegir al calendari" (ICS) ----
 const icsContent = `BEGIN:VCALENDAR
