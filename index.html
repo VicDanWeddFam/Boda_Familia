@@ -8,15 +8,27 @@
   <meta property="og:title" content="Boda — Danay & Vicent" />
   <meta property="og:description" content="Invitación y contacto para nuestra boda. Español y Valencià." />
   <meta property="og:type" content="website" />
+  <!-- Fuente manuscrita elegante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#faf9f7;--card:#ffffff;--ink:#1d1d1f;--muted:#6b7280;--accent:#8b5cf6;--accent-2:#a78bfa;--ring:#e5e7eb;
+      /* Paleta oliva suau */
+      --bg:#f1f5f1;           /* fons verd oliva molt clar */
+      --card:#ffffff;         /* targetes */
+      --ink:#1d1d1f;          /* text principal */
+      --muted:#66736a;        /* text mut */
+      --accent:#6ba36b;       /* botó/accents verds */
+      --accent-2:#9ec29e;     /* contorns d'accent */
+      --ring:#dfe7da;         /* línies suaus */
+      --olive-ink:#475a49;    /* per a la frase manuscrita */
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
     a{color:inherit}
     .container{max-width:980px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;background:rgba(250,249,247,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--ring);z-index:10}
+    header{position:sticky;top:0;background:rgba(241,245,241,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--ring);z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{font-weight:700;letter-spacing:.5px}
     .tabs{display:flex;gap:8px;flex-wrap:wrap}
@@ -24,12 +36,15 @@
     .tab[aria-current="page"]{border-color:var(--accent-2)}
     .lang-switch{display:flex;gap:8px}
     .chip{border:1px solid var(--ring);background:var(--card);padding:8px 12px;border-radius:999px;cursor:pointer}
-    .chip.active{border-color:var(--accent);box-shadow:0 0 0 3px rgba(139,92,246,.15)}
+    .chip.active{border-color:var(--accent);box-shadow:0 0 0 3px rgba(107,163,107,.15)}
     main{display:grid;gap:32px;padding-top:24px}
     section{background:var(--card);border:1px solid var(--ring);border-radius:20px;padding:24px}
-    .hero{display:grid;gap:12px;text-align:center;padding:40px 24px;border-radius:24px;background:conic-gradient(from 140deg at 50% 50%, #faf5ff, #ffffff, #f0f9ff)}
+
+    /* HERO amb degradat suau en verds */
+    .hero{display:grid;gap:12px;text-align:center;padding:40px 24px;border-radius:24px;background:conic-gradient(from 140deg at 50% 50%, #f3f8f3, #ffffff, #edf6ef)}
     .hero h1{margin:0;font-size:clamp(28px,5vw,44px)}
     .hero p{margin:0;color:var(--muted);font-size:clamp(14px,2.4vw,18px)}
+
     .row{display:grid;gap:24px}
     @media (min-width:768px){.row{grid-template-columns:1fr 1fr}}
     .card{border:1px solid var(--ring);border-radius:16px;padding:20px}
@@ -41,39 +56,25 @@
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .muted{color:var(--muted)}
 
-    /* --- Slideshow (Opción 2: “fijo” pero adaptable) --- */
-    .slideshow {
-      position: relative;
-      border: 1px solid var(--ring);
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--card); /* color de fondo/barras */
-      margin-inline: auto;     /* centrar */
+    /* --- Frase manuscrita superior --- */
+    .calligraphy{background:transparent;border:0;padding:12px 0 4px}
+    .calligraphy .words{
+      font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive;
+      font-weight:400;
+      text-align:center;
+      color:var(--olive-ink);
+      font-size:clamp(32px,6.2vw,56px);
+      line-height:1.1;
+      letter-spacing:.5px;
     }
-    /* Controla el tamaño aquí: --w = ancho adaptable; --h = alto fijo */
-    .slideshow.box {
-      --w: clamp(280px, 60vw, 600px); /* cambia límites a tu gusto */
-      --h: clamp(280px, 70vw, 600px);                     /* alto fijo: cámbialo si quieres */
-      inline-size: var(--w);
-      block-size: var(--h);
-    }
-    .slideshow-title{
-      margin: 0 0 12px;             /* separa del carrusel */
-      font-size: clamp(18px, 2.6vw, 26px);
-      font-weight: 700;
-      text-align: center;           /* <-- centra el texto */
-    }
+    .calligraphy .divider{margin-top:6px;height:10px;display:flex;align-items:center;justify-content:center}
+    .calligraphy .divider::before{content:"✿"; opacity:.4; font-size:14px}
 
-    .slideshow img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit: contain;      /* clave: no recorta ni deforma */
-      object-position: center;  /* centra la imagen */
-      opacity:0;
-      transition: opacity .8s;
-    }
+    /* --- Slideshow (Opción 2: “fijo” pero adaptable) --- */
+    .slideshow { position: relative; border: 1px solid var(--ring); border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
+    .slideshow.box { --w: clamp(280px, 60vw, 600px); --h: clamp(280px, 70vw, 600px); inline-size: var(--w); block-size: var(--h); }
+    .slideshow-title{ margin: 0 0 12px; font-size: clamp(18px, 2.6vw, 26px); font-weight: 700; text-align: center; }
+    .slideshow img{ position:absolute; inset:0; width:100%; height:100%; object-fit: contain; object-position: center; opacity:0; transition: opacity .8s; }
     .slideshow img.active{ opacity:1; }
 
     .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden}
@@ -93,105 +94,112 @@
   </header>
   
 <main id="contenido" class="container">
+  <!-- Frase manuscrita eleganta, damunt del carrusel -->
+  <section class="calligraphy" id="lema" aria-labelledby="lema-ttl">
+    <h2 id="lema-ttl" class="sr-only">Lema</h2>
+    <p class="words" data-i18n="words">Amor · Familia · Celebración</p>
+    <div class="divider" aria-hidden="true"></div>
+  </section>
+
   <!--    RECUADRO DE LAS FOTOS -->
-<section id="fotos" aria-labelledby="titulo-fotos">
-  <h2 id="titulo-fotos" class="slideshow-title" data-i18n="photos_title">¡ NOS CASAMOS !</h2>   <!--    tITULO -->
-      <div class="slideshow box" aria-live="off">
-        <img id="slideA" alt="Foto 1" loading="lazy" decoding="async" />
-        <img id="slideB" alt="Foto 2" loading="lazy" decoding="async" />
+  <section id="fotos" aria-labelledby="titulo-fotos">
+    <h2 id="titulo-fotos" class="slideshow-title" data-i18n="photos_title">¡ NOS CASAMOS !</h2>
+    <div class="slideshow box" aria-live="off">
+      <img id="slideA" alt="Foto 1" loading="lazy" decoding="async" />
+      <img id="slideB" alt="Foto 2" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="hero" id="invitacion">
+    <h1 data-i18n="hero_title"> Queremos celebrarlo y que nos acompañes en un día muy especial para nosotros</h1>
+    <p data-i18n="hero_sub">Hemos reservado una masía en Montcada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. 
+      Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. 
+      Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial. </p>
+    <a class="btn" href="#contacto" data-i18n="hero_btn">Contacta con nosotros y/o confirma tu asistencia!</a>
+  </section>
+
+  <section aria-labelledby="titulo-inv">
+    <h2 id="titulo-inv" data-i18n="inv_title">Invitación</h2>
+    <div class="row">
+      <div class="card">
+        <p data-i18n="inv_text_1">Nos hace mucha ilusión invitarte a nuestra boda. Será un día lleno de alegría, familia y amigos.</p>
+        <ul class="list">
+          <li><strong data-i18n="when">Cuándo:</strong> <span data-i18n="when_val">Domingo, 3 de mayo de 2026 · 12h</span></li>
+          <li><strong data-i18n="where">Dónde:</strong> <span data-i18n="where_val">Masía San Agustín, Montcada (València). </span></li>
+          <li><strong data-i18n="dress">Código de vestimenta:</strong> <span data-i18n="dress_val">Esperamos que vengais cómod@s, os aconsejamos que no os compreis ropa nueva y que vistais como es querais ver en las fotos en un futuro!</span></li>
+          <li><strong data-i18n="parking">Parking disponible</strong></li>
+        </ul>
       </div>
-</section>
-
-    <section class="hero" id="invitacion">
-      <h1 data-i18n="hero_title"> Queremos celebrarlo y que nos acompañes en un día muy especial para nosotros</h1>
-      <p data-i18n="hero_sub">Hemos reservado una masía en Montcada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. 
-        Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. 
-        Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial. </p>
-      <a class="btn" href="#contacto" data-i18n="hero_btn">Contacta con nosotros y/o confirma tu asistencia!</a>
-    </section>
-
-    <section aria-labelledby="titulo-inv">
-      <h2 id="titulo-inv" data-i18n="inv_title">Invitación</h2>
-      <div class="row">
-        <div class="card">
-          <p data-i18n="inv_text_1">Nos hace mucha ilusión invitarte a nuestra boda. Será un día lleno de alegría, familia y amigos.</p>
-          <ul class="list">
-            <li><strong data-i18n="when">Cuándo:</strong> <span data-i18n="when_val">Domingo, 3 de mayo de 2026 · 12h</span></li>
-            <li><strong data-i18n="where">Dónde:</strong> <span data-i18n="where_val">Masía San Agustín, Montcada (València). </span></li>
-            <li><strong data-i18n="dress">Código de vestimenta:</strong> <span data-i18n="dress_val">Esperamos que vengais cómod@s, os aconsejamos que no os compreis ropa nueva y que vistais como es querais ver en las fotos en un futuro!</span></li>
-            <li><strong data-i18n="parking">Parking disponible</strong></li>
-          </ul>
-        </div>
-        <div class="card">
-          <p data-i18n="inv_text_2">Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.</p>
-          <p data-i18n="inv_text_3">Confirma tu asistencia antes del </p>
-          <a class="btn" href="#contacto" data-i18n="rsvp_btn">Confirmar asistencia</a>
-        </div>
+      <div class="card">
+        <p data-i18n="inv_text_2">Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.</p>
+        <p data-i18n="inv_text_3">Confirma tu asistencia antes del </p>
+        <a class="btn" href="#contacto" data-i18n="rsvp_btn">Confirmar asistencia</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Mapa -->
-    <section id="mapa" aria-labelledby="titulo-mapa">
-      <h2 id="titulo-mapa" data-i18n="map_title">Cómo llegar</h2>
-      <div class="map-wrap">
-        <iframe
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen
-          src="https://www.google.com/maps?q=Mas%C3%ADa%20San%20Agust%C3%ADn&output=embed">
-        </iframe>
+  <!-- Mapa -->
+  <section id="mapa" aria-labelledby="titulo-mapa">
+    <h2 id="titulo-mapa" data-i18n="map_title">Cómo llegar</h2>
+    <div class="map-wrap">
+      <iframe
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        src="https://www.google.com/maps?q=Mas%C3%ADa%20San%20Agust%C3%ADn&output=embed">
+      </iframe>
+    </div>
+  </section>
+
+  <section id="contacto" aria-labelledby="titulo-ct">
+    <h2 id="titulo-ct" data-i18n="ct_title">Contacto</h2>
+    <div class="row">
+      <div class="card">
+        <p data-i18n="ct_text">Para cualquier duda o para confirmar asistencia:</p>
+      
+        <p>
+          <strong data-i18n="email">Email:</strong>
+          <a href="mailto:vicent.besteve@gmail.com">vicent.besteve@gmail.com</a>
+          /
+          <a href="mailto:danayc26@gmail.com">danayc26@gmail.com</a>
+        </p>
+      
+        <p>
+          <strong data-i18n="phone">Teléfono (+34):</strong>
+          <a href="tel:+34682028382">+34 682 028 382</a>
+          /
+          <a href="tel:+34642333158">+34 642 333 158</a>
+        </p>
       </div>
-    </section>
 
-    <section id="contacto" aria-labelledby="titulo-ct">
-      <h2 id="titulo-ct" data-i18n="ct_title">Contacto</h2>
-      <div class="row">
-        <div class="card">
-          <p data-i18n="ct_text">Para cualquier duda o para confirmar asistencia:</p>
-        
-          <p>
-            <strong data-i18n="email">Email:</strong>
-            <a href="mailto:vicent.besteve@gmail.com">vicent.besteve@gmail.com</a>
-            /
-            <a href="mailto:danayc26@gmail.com">danayc26@gmail.com</a>
-          </p>
-        
-          <p>
-            <strong data-i18n="phone">Teléfono (+34):</strong>
-            <a href="tel:+34682028382">+34 682 028 382</a>
-            /
-            <a href="tel:+34642333158">+34 642 333 158</a>
-          </p>
-        </div>
-
-        <div class="card">
-          <form id="rsvpForm" action="https://formspree.io/f/xqayeqla" method="POST" novalidate>
-            <label>
-              <span data-i18n="form_name">Nombre</span><br />
-              <input required name="name" type="text" placeholder="Tu nombre" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
-            </label>
-            <br /><br />
-            <label>
-              <span data-i18n="form_msg">Mensaje</span><br />
-              <textarea required name="message" rows="4" placeholder="Tu mensaje" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px"></textarea>
-            </label>
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <br />
-            <button class="btn" type="submit" data-i18n="form_send">Enviar</button>
-            <p id="formStatus" role="status" aria-live="polite" style="margin-top:8px;color:var(--muted);font-size:12px"></p>
-            <p style="color:var(--muted);font-size:12px" data-i18n="form_note">El formulario enviará el mensaje al correo configurado.</p>
-          </form>
-        </div>
+      <div class="card">
+        <form id="rsvpForm" action="https://formspree.io/f/xqayeqla" method="POST" novalidate>
+          <label>
+            <span data-i18n="form_name">Nombre</span><br />
+            <input required name="name" type="text" placeholder="Tu nombre" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
+          </label>
+          <br /><br />
+          <label>
+            <span data-i18n="form_msg">Mensaje</span><br />
+            <textarea required name="message" rows="4" placeholder="Tu mensaje" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px"></textarea>
+          </label>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <br />
+          <button class="btn" type="submit" data-i18n="form_send">Enviar</button>
+          <p id="formStatus" role="status" aria-live="polite" style="margin-top:8px;color:var(--muted);font-size:12px"></p>
+          <p style="color:var(--muted);font-size:12px" data-i18n="form_note">El formulario enviará el mensaje al correo configurado.</p>
+        </form>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <p data-i18n="foot">Con ❤️, Nombre & Nombre · 2025</p>
-    </footer>
-  </main>
+  <footer>
+    <p data-i18n="foot">Con ❤️, Nombre & Nombre · 2025</p>
+  </footer>
+</main>
 
-  <script>
-    // Diccionario ES / Valencià
+<script>
+// Diccionario ES / Valencià
 const i18n = {
   es: {
     brand: "Danay y Vicent",
@@ -228,7 +236,8 @@ const i18n = {
     form_required_msg: "Por favor, escribe un mensaje.",
     photos_note: "Consejo: sustituye las rutas del array photos en el script por tus imágenes del repositorio.",
     map_title: "Cómo llegar",
-    foot: "Con ❤️, Danay & Vicent · 2025"
+    foot: "Con ❤️, Danay & Vicent · 2025",
+    words: "Amor · Familia · Celebración"
   },
   ca: {
     brand: "Vicent & Danay",
@@ -265,108 +274,108 @@ const i18n = {
     form_required_msg: "Per favor, escriu un missatge.",
     photos_note: "Consell: substitueix les rutes de l'array photos al script per les teues imatges del repositori.",
     map_title: "Com arribar",
-    foot: "Amb ❤️, Vicent & Danay · 2025"
+    foot: "Amb ❤️, Vicent & Danay · 2025",
+    words: "Amor · Família · Celebració"
   }
 };
 
+const $ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
 
-    const $ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
-
-    function setLang(lang){
-      const dict = i18n[lang] || i18n.es;
-      document.documentElement.lang = lang === 'ca' ? 'ca' : 'es';
-      $('[data-i18n]').forEach(node => {
-        const key = node.getAttribute('data-i18n');
-        if (dict[key] !== undefined){
-          if (key === 'inv_text_3') {
-            const fecha = lang === 'ca' ? '1 de gener' : '1 de enero';
-            node.innerHTML = dict[key] + '<strong>' + fecha + '</strong>.';
-          } else {
-            node.textContent = dict[key];
-          }
-        }
-      });
-      $('.chip').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-      try{ localStorage.setItem('lang', lang); }catch{}
-    }
-
-    // Enrutado suave a anclas
-    $('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
-        $('.tab').forEach(t => t.setAttribute('aria-current', t===a ? 'page' : 'false'));
-      });
-    });
-
-    // Toggle idioma
-    $('.chip').forEach(btn=>{
-      btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
-    });
-
-    // Idioma inicial
-    const saved = (()=>{ try{return localStorage.getItem('lang')}catch{return null} })();
-    setLang(saved || (navigator.language.startsWith('ca') ? 'ca' : 'es'));
-
-    // ---- Envío del formulario (Formspree AJAX) ----
-    const form = document.getElementById('rsvpForm');
-    const statusEl = document.getElementById('formStatus');
-
-    async function submitForm(event){
-      event.preventDefault();
-      statusEl.textContent = '';
-      const lang = document.documentElement.lang === 'ca' ? 'ca' : 'es';
-      const dict = i18n[lang];
-
-      const formData = new FormData(form);
-      const name = (formData.get('name')||'').toString().trim();
-      const message = (formData.get('message')||'').toString().trim();
-      if(!name){ statusEl.textContent = dict.form_required_name; return; }
-      if(!message){ statusEl.textContent = dict.form_required_msg; return; }
-
-      const endpoint = form.getAttribute('action');
-
-      try{
-        const res = await fetch(endpoint, { method:'POST', body: formData, headers: { 'Accept':'application/json' } });
-        if(res.ok){
-          statusEl.textContent = dict.form_success;
-          form.reset();
-        } else {
-          statusEl.textContent = dict.form_error;
-        }
-      }catch(err){
-        statusEl.textContent = dict.form_error;
+function setLang(lang){
+  const dict = i18n[lang] || i18n.es;
+  document.documentElement.lang = lang === 'ca' ? 'ca' : 'es';
+  $('[data-i18n]').forEach(node => {
+    const key = node.getAttribute('data-i18n');
+    if (dict[key] !== undefined){
+      if (key === 'inv_text_3') {
+        const fecha = lang === 'ca' ? '1 de gener' : '1 de enero';
+        node.innerHTML = dict[key] + '<strong>' + fecha + '</strong>.';
+      } else {
+        node.textContent = dict[key];
       }
     }
+  });
+  $('.chip').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+  try{ localStorage.setItem('lang', lang); }catch{}
+}
 
-    form?.addEventListener('submit', submitForm);
+// Enrutado suave a anclas
+$('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+    $('.tab').forEach(t => t.setAttribute('aria-current', t===a ? 'page' : 'false'));
+  });
+});
 
-    // ---- Slideshow simple (cambia cada 5s) ----
-    const photos = [
-      'img/IMG-20231228-WA0044.jpg',
-      'img/IMG-20240824-WA0022.jpg',
-      'img/IMG-20240824-WA0123.jpg',
-      'img/IMG_20231118_122548.jpg',
-      'img/IMG_20231118_131436.jpg',
-      'img/IMG_20241030_182331.jpg'
-    ];
-    const imgA = document.getElementById('slideA');
-    const imgB = document.getElementById('slideB');
-    let idx = 0, showingA = true;
+// Toggle idioma
+$('.chip').forEach(btn=>{
+  btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+});
 
-    function setImg(img, url){ img.src = url; }
-    function swap(){
-      const next = (idx + 1) % photos.length;
-      if (showingA){ setImg(imgB, photos[next]); imgB.classList.add('active'); imgA.classList.remove('active'); }
-      else { setImg(imgA, photos[next]); imgA.classList.add('active'); imgB.classList.remove('active'); }
-      idx = next; showingA = !showingA;
+// Idioma inicial
+const saved = (()=>{ try{return localStorage.getItem('lang')}catch{return null} })();
+setLang(saved || (navigator.language.startsWith('ca') ? 'ca' : 'es'));
+
+// ---- Envío del formulario (Formspree AJAX) ----
+const form = document.getElementById('rsvpForm');
+const statusEl = document.getElementById('formStatus');
+
+async function submitForm(event){
+  event.preventDefault();
+  statusEl.textContent = '';
+  const lang = document.documentElement.lang === 'ca' ? 'ca' : 'es';
+  const dict = i18n[lang];
+
+  const formData = new FormData(form);
+  const name = (formData.get('name')||'').toString().trim();
+  const message = (formData.get('message')||'').toString().trim();
+  if(!name){ statusEl.textContent = dict.form_required_name; return; }
+  if(!message){ statusEl.textContent = dict.form_required_msg; return; }
+
+  const endpoint = form.getAttribute('action');
+
+  try{
+    const res = await fetch(endpoint, { method:'POST', body: formData, headers: { 'Accept':'application/json' } });
+    if(res.ok){
+      statusEl.textContent = dict.form_success;
+      form.reset();
+    } else {
+      statusEl.textContent = dict.form_error;
     }
-    // Inicializa
-    if (photos.length){ setImg(imgA, photos[0]); imgA.classList.add('active'); }
-    if (photos.length>1){ setImg(imgB, photos[1]); idx = 1; showingA = false; }
-    // Relevo cada 5s si hay más de 1 foto
-    if (photos.length>1){ setInterval(swap, 5000); }
-  </script>
+  }catch(err){
+    statusEl.textContent = dict.form_error;
+  }
+}
+
+form?.addEventListener('submit', submitForm);
+
+// ---- Slideshow simple (cambia cada 5s) ----
+const photos = [
+  'img/IMG-20231228-WA0044.jpg',
+  'img/IMG-20240824-WA0022.jpg',
+  'img/IMG-20240824-WA0123.jpg',
+  'img/IMG_20231118_122548.jpg',
+  'img/IMG_20231118_131436.jpg',
+  'img/IMG_20241030_182331.jpg'
+];
+const imgA = document.getElementById('slideA');
+const imgB = document.getElementById('slideB');
+let idx = 0, showingA = true;
+
+function setImg(img, url){ img.src = url; }
+function swap(){
+  const next = (idx + 1) % photos.length;
+  if (showingA){ setImg(imgB, photos[next]); imgB.classList.add('active'); imgA.classList.remove('active'); }
+  else { setImg(imgA, photos[next]); imgA.classList.add('active'); imgB.classList.remove('active'); }
+  idx = next; showingA = !showingA;
+}
+// Inicializa
+if (photos.length){ setImg(imgA, photos[0]); imgA.classList.add('active'); }
+if (photos.length>1){ setImg(imgB, photos[1]); idx = 1; showingA = false; }
+// Relevo cada 5s si hay más de 1 foto
+if (photos.length>1){ setInterval(swap, 5000); }
+</script>
 </body>
 </html>
