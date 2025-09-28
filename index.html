@@ -133,7 +133,8 @@
       </div>
       <div class="card">
         <p data-i18n="inv_text_2">Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.</p>
-        <p data-i18n="inv_text_3">Confirma tu asistencia antes del </p>
+        <p data-i18n="inv_text_3">Dinos si quieres traer a alguien contigo, estaremos encantados!</p>
+        <p data-i18n="inv_text_4">Confirma tu asistencia antes del 1 de enero. </p>
         <a class="btn" href="#contacto" data-i18n="rsvp_btn">Confirmar asistencia</a>
       </div>
     </div>
@@ -221,7 +222,8 @@ const i18n = {
     dress_val: "Esperamos que vengais cómod@s, os aconsejamos que no os compreis ropa nueva y que vistais como es querais ver en las fotos en un futuro!",
     parking: "Parking disponible",
     inv_text_2: "Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.",
-    inv_text_3: "Confirma tu asistencia antes del ",
+    inv_text_3: "Dinos si quieres traer a alguien contigo, estaremos encantados!",
+    inv_text_4: "Confirma tu asistencia antes del 1 de enero",
     rsvp_btn: "Confirmar asistencia",
     ct_title: "Contacto",
     ct_text: "Para cualquier duda o para confirmar asistencia:",
@@ -259,8 +261,9 @@ const i18n = {
     where_val: "Masia Sant Agustí, Moncada.",
     dress_val: "Esperem que vingueu còmodes, vos aconsellem que no compreu roba nova i que vestiu com vuigueu vore-vos en les fotos en un futur.",
     parking: "Aparcament disponible",
+    inv_text_3: "Digues si vols dur algú amb tu, estarem encantats!",
     inv_text_2: "Si necessites allotjament o transport, digueu-nos-ho i t'ajudem amb recomanacions.",
-    inv_text_3: "Confirma l'assistència abans de l'",
+    inv_text_4: "Confirma l'assistència abans del 1 de gener.",
     rsvp_btn: "Confirmar assistència",
     ct_title: "Contacte",
     ct_text: "Per a qualsevol dubte o per a confirmar assistència:",
@@ -290,7 +293,7 @@ function setLang(lang){
   $('[data-i18n]').forEach(node => {
     const key = node.getAttribute('data-i18n');
     if (dict[key] !== undefined){
-      if (key === 'inv_text_3') {
+      if (key === 'inv_text_4') {
         const fecha = lang === 'ca' ? '1 de gener' : '1 de enero';
         node.innerHTML = dict[key] + '<strong>' + fecha + '</strong>.';
       } else {
@@ -361,7 +364,7 @@ const photos = [
   'img/IMG-20240824-WA0123.jpg',
   'img/IMG_20231118_122548.jpg',
   'img/IMG_20231118_131436.jpg',
-  'img/IMG_20241030_182331.jpg'
+  'img/IMG_20241030_182331.jpg',
   'img/WhatsApp Image 2025-09-27 at 10.55.44.jpeg',
   'img/WhatsApp Image 2025-09-27 at 10.58.06.jpeg',
   'img/WhatsApp Image 2025-09-27 at 11.00.08.jpeg',
