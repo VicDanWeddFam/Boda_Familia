@@ -67,14 +67,22 @@
       line-height:1.1;
       letter-spacing:.5px;
     }
+    .calligraphy .big{
+      font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive;
+      font-weight:400; text-align:center; color:var(--olive-ink);
+      font-size:clamp(40px,8vw,84px); line-height:1; margin:0 0 4px; letter-spacing:.6px;
+    }
 
-    .calligraphy .big{ font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive; font-weight:400; text-align:center; color:var(--olive-ink); font-size:clamp(40px,8vw,84px); line-height:1; margin:0 0 4px; letter-spacing:.6px; }
-
-    /* --- Slideshow (Opción 2: “fijo” pero adaptable) --- */
+    /* --- Slideshow (fijo pero adaptable) --- */
     .slideshow { position: relative; border: 1px solid var(--ring); border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
     .slideshow.box { --w: clamp(280px, 60vw, 600px); --h: clamp(280px, 70vw, 600px); inline-size: var(--w); block-size: var(--h); }
     .slideshow-title{ margin: 0 0 12px; font-size: clamp(18px, 2.6vw, 26px); font-weight: 700; text-align: center; }
-    .slideshow img{ position:absolute; inset:0; width:100%; height:100%; object-fit: contain; object-position: center; opacity:0; transition: opacity .8s; will-change: opacity; backface-visibility: hidden; }
+    .slideshow img{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit: contain; object-position: center;
+      opacity:0; transition: opacity .8s;
+      will-change: opacity; backface-visibility: hidden;
+    }
     .slideshow img.active{ opacity:1; }
 
     .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden}
@@ -94,12 +102,11 @@
   </header>
   
 <main id="contenido" class="container">
-  <!-- Frase manuscrita eleganta, damunt del carrusel -->
+  <!-- Frase manuscrita elegante, damunt del carrusel -->
   <section class="calligraphy" id="lema" aria-labelledby="lema-ttl">
     <h2 id="lema-ttl" class="sr-only">Lema</h2>
     <p class="words big" data-i18n="big_title">¡Nos casamos!</p>
-    <p class="words" data-i18n="words">Acompañanos en un día muy especial para nosotros</p>
-    <div class="divider" aria-hidden="true"></div>
+    <p class="words" data-i18n="words">Acompáñanos en un día muy especial para nosotros</p>
   </section>
 
   <!--    RECUADRO DE LAS FOTOS -->
@@ -112,10 +119,8 @@
   </section>
 
   <section class="hero" id="invitacion">
-    <h1 data-i18n="hero_title"> Queremos compartir contigo nuestra celebración</h1>
-    <p data-i18n="hero_sub">Hemos reservado una masía en Moncada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. 
-      Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. 
-      Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial. </p>
+    <h1 data-i18n="hero_title">Queremos celebrarlo y que nos acompañes en un día muy especial para nosotros</h1>
+    <p data-i18n="hero_sub">Hemos reservado una masía en Montcada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial.</p>
     <a class="btn" href="#contacto" data-i18n="hero_btn">Contacta con nosotros y/o confirma tu asistencia!</a>
   </section>
 
@@ -126,15 +131,15 @@
         <p data-i18n="inv_text_1">Nos hace mucha ilusión invitarte a nuestra boda. Será un día lleno de alegría, familia y amigos.</p>
         <ul class="list">
           <li><strong data-i18n="when">Cuándo:</strong> <span data-i18n="when_val">Domingo, 3 de mayo de 2026 · 12h</span></li>
-          <li><strong data-i18n="where">Dónde:</strong> <span data-i18n="where_val">Masía San Agustín, Moncada. </span></li>
-          <li><strong data-i18n="dress">Código de vestimenta:</strong> <span data-i18n="dress_val">Esperamos que vengais cómod@s, os aconsejamos que no os compreis ropa nueva y que vistais como es querais ver en las fotos en un futuro!</span></li>
+          <li><strong data-i18n="where">Dónde:</strong> <span data-i18n="where_val">Masía San Agustín, Montcada (València).</span></li>
+          <li><strong data-i18n="dress">Código de vestimenta:</strong> <span data-i18n="dress_val">Esperamos que vengáis cómod@s; os aconsejamos que no os compréis ropa nueva y que vistáis como os queráis ver en las fotos en un futuro.</span></li>
           <li><strong data-i18n="parking">Parking disponible</strong></li>
         </ul>
       </div>
       <div class="card">
         <p data-i18n="inv_text_2">Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.</p>
-        <p data-i18n="inv_text_3">Dinos si quieres traer a alguien contigo, estaremos encantados!</p>
-        <p data-i18n="inv_text_4">Confirma tu asistencia antes del 1 de enero. </p>
+        <p data-i18n="inv_text_3">Dinos si quieres traer a alguien contigo, ¡estaremos encantados!</p>
+        <p data-i18n="inv_text_4">Confirma tu asistencia antes del <strong>1 de enero</strong>.</p>
         <a class="btn" href="#contacto" data-i18n="rsvp_btn">Confirmar asistencia</a>
       </div>
     </div>
@@ -158,14 +163,12 @@
     <div class="row">
       <div class="card">
         <p data-i18n="ct_text">Para cualquier duda o para confirmar asistencia:</p>
-      
         <p>
           <strong data-i18n="email">Email:</strong>
           <a href="mailto:vicent.besteve@gmail.com">vicent.besteve@gmail.com</a>
           /
           <a href="mailto:danayc26@gmail.com">danayc26@gmail.com</a>
         </p>
-      
         <p>
           <strong data-i18n="phone">Teléfono (+34):</strong>
           <a href="tel:+34682028382">+34 682 028 382</a>
@@ -209,7 +212,7 @@ const i18n = {
     tab_cta: "Contacto",
     kicker: "¡Nos casamos!",
     photos_title: "¡NOS CASAMOS!",
-    hero_title: "Queremos compartir contigo nuestra celebración",
+    hero_title: "Queremos celebrarlo y que nos acompañes en un día muy especial para nosotros",
     hero_sub: "Hemos reservado una masía en Montcada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial.",
     hero_btn: "Contacta con nosotros y/o confirma tu asistencia!",
     inv_title: "Invitación",
@@ -218,11 +221,11 @@ const i18n = {
     where: "Dónde:",
     dress: "Código de vestimenta:",
     when_val: "Domingo, 3 de mayo de 2026 · 12h",
-    where_val: "Masía San Agustín, Moncada.",
-    dress_val: "Esperamos que vengais cómod@s, os aconsejamos que no os compreis ropa nueva y que vistais como es querais ver en las fotos en un futuro!",
+    where_val: "Masía San Agustín, Montcada (València).",
+    dress_val: "Esperamos que vengáis cómod@s; os aconsejamos que no os compréis ropa nueva y que vistáis como os queráis ver en las fotos en un futuro.",
     parking: "Parking disponible",
     inv_text_2: "Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.",
-    inv_text_3: "Dinos si quieres traer a alguien contigo, estaremos encantados!",
+    inv_text_3: "Dinos si quieres traer a alguien contigo, ¡estaremos encantados!",
     inv_text_4: "Confirma tu asistencia antes del <strong>1 de enero</strong>.",
     rsvp_btn: "Confirmar asistencia",
     ct_title: "Contacto",
@@ -249,7 +252,7 @@ const i18n = {
     tab_cta: "Contacte",
     kicker: "Ens casem!",
     photos_title: "ENS CASEM !",
-    hero_title: "Volem compartir amb tu la nostra celebració",
+    hero_title: "Volem celebrar-ho i que ens acompanyes en un dia molt especial per a nosaltres",
     hero_sub: "Hem reservat una masia a Montcada per a viure un dia tranquil i acollidor amb la companyia de qui més estimem. La nostra intenció és que les nostres famílies es coneguen i gaudisquen juntes d’un dinar casolà en un ambient bonic i íntim. Més que un casament tradicional, serà com un gran dinar familiar… però en un lloc especial.",
     hero_btn: "Contacta amb nosaltres i/o confirma l’assistència!",
     inv_title: "Invitació",
@@ -258,11 +261,11 @@ const i18n = {
     where: "On:",
     dress: "Codi de vestimenta:",
     when_val: "Diumenge, 3 de maig de 2026 · 12h",
-    where_val: "Masia Sant Agustí, Moncada.",
-    dress_val: "Esperem que vingueu còmodes, vos aconsellem que no compreu roba nova i que vestiu com vuigueu vore-vos en les fotos en un futur.",
+    where_val: "Masia Sant Agustí, Montcada (València).",
+    dress_val: "Esperem que vingueu còmodes, vos aconsellem que no compreu roba nova i que vestiu com vulgueu veure-vos en les fotos en un futur.",
     parking: "Aparcament disponible",
-    inv_text_3: "Digues si vols dur algú amb tu, estarem encantats!",
     inv_text_2: "Si necessites allotjament o transport, digueu-nos-ho i t'ajudem amb recomanacions.",
+    inv_text_3: "Digues si vols dur algú amb tu, estarem encantats!",
     inv_text_4: "Confirma l'assistència abans del <strong>1 de gener</strong>.",
     rsvp_btn: "Confirmar assistència",
     ct_title: "Contacte",
@@ -286,6 +289,7 @@ const i18n = {
 };
 
 const $ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+const HTML_KEYS = new Set(['inv_text_4']); // claus que poden contindre HTML
 
 function setLang(lang){
   const dict = i18n[lang] || i18n.es;
@@ -294,9 +298,9 @@ function setLang(lang){
     const key = node.getAttribute('data-i18n');
     if (dict[key] !== undefined){
       if (HTML_KEYS.has(key)) {
-        node.innerHTML = dict[key];   // permet HTML
+        node.innerHTML = dict[key];
       } else {
-        node.textContent = dict[key]; // text pla
+        node.textContent = dict[key];
       }
     }
   });
@@ -356,39 +360,21 @@ async function submitForm(event){
 
 form?.addEventListener('submit', submitForm);
 
-// ---- Slideshow simple (cambia cada 5s) ----
-const photos = [
-  'img/IMG-20231228-WA0044.jpg',
-  'img/IMG-20240824-WA0022.jpg',
-  'img/IMG-20240824-WA0123.jpg',
-  'img/IMG_20231118_122548.jpg',
-  'img/IMG_20231118_131436.jpg',
-  'img/IMG_20241030_182331.jpg',
-  'img/WhatsApp Image 2025-09-27 at 10.55.44.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 10.58.06.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.00.08.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.07.08.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.07.13.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.07.17.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.07.18.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.07.19.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.13.03.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.13.04.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.13.05.jpeg',
-  'img/WhatsApp Image 2025-09-27 at 11.13.06.jpeg'
-];
+// ---- Slideshow amb pre-carrega (suau, sense “parpelleig”) ----
+const photos = [ 'img/IMG-20231228-WA0044.jpg', 'img/IMG-20240824-WA0022.jpg', 'img/IMG-20240824-WA0123.jpg', 'img/IMG_20231118_122548.jpg', 'img/IMG_20231118_131436.jpg', 'img/IMG_20241030_182331.jpg', 'img/WhatsApp Image 2025-09-27 at 10.55.44.jpeg', 'img/WhatsApp Image 2025-09-27 at 10.58.06.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.00.08.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.08.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.13.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.17.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.18.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.19.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.03.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.04.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.05.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.06.jpeg' ];
 const imgA = document.getElementById('slideA');
 const imgB = document.getElementById('slideB');
 let idx = 0, showingA = true;
 
 function setImg(img, url){ img.src = url; }
+
 function swap(){
   const next = (idx + 1) % photos.length;
   const target = showingA ? imgB : imgA; // la que entra
   const preloader = new Image();
   preloader.decoding = 'async';
   preloader.onload = () => {
-    setImg(target, photos[next]);            // posem el src quan JA està carregada
+    setImg(target, photos[next]);            // solo cambiamos src cuando YA cargó
     if (showingA){ target.classList.add('active'); imgA.classList.remove('active'); }
     else { target.classList.add('active'); imgB.classList.remove('active'); }
     idx = next; showingA = !showingA;
