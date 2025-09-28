@@ -58,7 +58,15 @@
 
     /* --- Frase manuscrita superior --- */
     .calligraphy{background:transparent;border:0;padding:12px 0 4px}
-    $1
+    .calligraphy .words{
+      font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive;
+      font-weight:400;
+      text-align:center;
+      color:var(--olive-ink);
+      font-size:clamp(32px,6.2vw,56px);
+      line-height:1.1;
+      letter-spacing:.5px;
+    }
 
     .calligraphy .big{ font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive; font-weight:400; text-align:center; color:var(--olive-ink); font-size:clamp(40px,8vw,84px); line-height:1; margin:0 0 4px; letter-spacing:.6px; }
     .calligraphy .divider{margin-top:6px;height:10px;display:flex;align-items:center;justify-content:center}
@@ -92,7 +100,7 @@
   <section class="calligraphy" id="lema" aria-labelledby="lema-ttl">
     <h2 id="lema-ttl" class="sr-only">Lema</h2>
     <p class="words big" data-i18n="big_title">¡Nos casamos!</p>
-    <p class="words" data-i18n="words">$1</p>
+    <p class="words" data-i18n="words">Acompañanos en un día muy especial para nosotros</p>
     <div class="divider" aria-hidden="true"></div>
   </section>
 
@@ -196,11 +204,83 @@
 <script>
 // Diccionario ES / Valencià
 const i18n = {
-  $1,
+  es: {
+    brand: "Danay y Vicent",
+    tab_inv: "Invitación",
+    tab_cta: "Contacto",
+    kicker: "¡Nos casamos!",
+    photos_title: "¡NOS CASAMOS!",
+    hero_title: "Queremos celebrarlo y que nos acompañes en un día muy especial para nosotros",
+    hero_sub: "Hemos reservado una masía en Montcada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial.",
+    hero_btn: "Contacta con nosotros y/o confirma tu asistencia!",
+    inv_title: "Invitación",
+    inv_text_1: "Nos hace mucha ilusión invitarte a nuestra boda. Será un día lleno de alegría, familia y amigos.",
+    when: "Cuándo:",
+    where: "Dónde:",
+    dress: "Código de vestimenta:",
+    when_val: "Domingo, 3 de mayo de 2026 · 12h",
+    where_val: "Masía San Agustín, Montcada (València).",
+    dress_val: "Esperamos que vengais cómod@s, os aconsejamos que no os compreis ropa nueva y que vistais como es querais ver en las fotos en un futuro!",
+    parking: "Parking disponible",
+    inv_text_2: "Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.",
+    inv_text_3: "Confirma tu asistencia antes del ",
+    rsvp_btn: "Confirmar asistencia",
+    ct_title: "Contacto",
+    ct_text: "Para cualquier duda o para confirmar asistencia:",
+    email: "Email:",
+    phone: "Teléfono (+34):",
+    form_name: "Nombre",
+    form_msg: "Mensaje",
+    form_send: "Enviar",
+    form_note: "El formulario enviará el mensaje al correo configurado.",
+    form_success: "¡Gracias! Hemos recibido tu mensaje.",
+    form_error: "Ups… no se ha podido enviar. Inténtalo de nuevo en un rato.",
+    form_required_name: "Por favor, escribe tu nombre.",
+    form_required_msg: "Por favor, escribe un mensaje.",
+    photos_note: "Consejo: sustituye las rutas del array photos en el script por tus imágenes del repositorio.",
+    map_title: "Cómo llegar",
+    foot: "Con ❤️, Danay & Vicent · 2025",
+    words: "Acompáñanos en un día muy especial para nosotros",
     big_title: "¡Nos casamos!"
   },
-  $1,
-    big_title: "Ens ca
+  ca: {
+    brand: "Vicent & Danay",
+    tab_inv: "Invitació",
+    tab_cta: "Contacte",
+    kicker: "Ens casem!",
+    photos_title: "ENS CASEM !",
+    hero_title: "Volem celebrar-ho i que ens acompanyes en un dia molt especial per a nosaltres",
+    hero_sub: "Hem reservat una masia a Montcada per a viure un dia tranquil i acollidor amb la companyia de qui més estimem. La nostra intenció és que les nostres famílies es coneguen i gaudisquen juntes d’un dinar casolà en un ambient bonic i íntim. Més que un casament tradicional, serà com un gran dinar familiar… però en un lloc especial.",
+    hero_btn: "Contacta amb nosaltres i/o confirma l’assistència!",
+    inv_title: "Invitació",
+    inv_text_1: "Ens fa molta il·lusió convidar-te a la nostra boda. Serà un dia ple d'alegria, família i amistats.",
+    when: "Quan:",
+    where: "On:",
+    dress: "Codi de vestimenta:",
+    when_val: "Diumenge, 3 de maig de 2026 · 12h",
+    where_val: "Masia Sant Agustí, Montcada (València).",
+    dress_val: "Esperem que vingueu còmodes, vos aconsellem que no compreu roba nova i que vestiu com vuigueu vore-vos en les fotos en un futur.",
+    parking: "Aparcament disponible",
+    inv_text_2: "Si necessites allotjament o transport, digueu-nos-ho i t'ajudem amb recomanacions.",
+    inv_text_3: "Confirma l'assistència abans de l'",
+    rsvp_btn: "Confirmar assistència",
+    ct_title: "Contacte",
+    ct_text: "Per a qualsevol dubte o per a confirmar assistència:",
+    email: "Correu:",
+    phone: "Telèfon (+34):",
+    form_name: "Nom",
+    form_msg: "Missatge",
+    form_send: "Enviar",
+    form_note: "El formulari enviarà el missatge al correu configurat.",
+    form_success: "Gràcies! Hem rebut el teu missatge.",
+    form_error: "Ups… no s'ha pogut enviar. Torna-ho a intentar més tard.",
+    form_required_name: "Per favor, escriu el teu nom.",
+    form_required_msg: "Per favor, escriu un missatge.",
+    photos_note: "Consell: substitueix les rutes de l'array photos al script per les teues imatges del repositori.",
+    map_title: "Com arribar",
+    foot: "Amb ❤️, Vicent & Danay · 2025",
+    words: "Acompanya'ns en un dia molt especial per a nosaltres!",
+    big_title: "Ens casem!"
   }
 };
 
