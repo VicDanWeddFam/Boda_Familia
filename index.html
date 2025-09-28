@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="es">
 <head>
@@ -9,72 +8,71 @@
   <meta property="og:title" content="Boda — Danay & Vicent" />
   <meta property="og:description" content="Invitación y contacto para nuestra boda. Español y Valencià." />
   <meta property="og:type" content="website" />
-  <!-- Fuente manuscrita elegante -->
+  <meta property="og:image" content="/img/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Tipografies: capçaleres (Playfair Display), cossos (Inter), cal·ligrafia (Parisienne) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Parisienne&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* Paleta oliva suau */
-      --bg:#d2f0af;           /* fons verd oliva un punt més fosc */
-      --card:#e6eee3;         /* targetes */
-      --ink:#1d1d1f;          /* text principal */
-      --muted:#556158;        /* text mut */
-      --accent:#4f8a4f;       /* botó/accents verds */
-      --accent-2:#7fb17f;     /* contorns d'accent */
-      --ring:#cdd9c8;         /* línies suaus */
-      --olive-ink:#3f5141;    /* per a la frase manuscrita */
+      /* Paleta oliva suau (lleu ajust) */
+      --bg:#d9f3bb;
+      --card:#eef3ec;
+      --ink:#1b1b1d;
+      --muted:#58645b;
+      --accent:#4f8a4f;
+      --accent-2:#7fb17f;
+      --ring:#cdd9c8;
+      --olive-ink:#3f5141;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;height:100%;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;color:var(--ink);background:var(--bg)}
+    h1,h2,h3{font-family:"Playfair Display", Georgia, serif}
     a{color:inherit}
     .container{max-width:980px;margin:0 auto;padding:24px}
     header{position:sticky;top:0;background:rgba(241,245,241,.85);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--ring);z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{font-weight:700;letter-spacing:.5px}
-    .tabs{display:flex;gap:8px;flex-wrap:wrap}
-    .tab{padding:10px 14px;border-radius:999px;border:1px solid var(--ring);background:var(--card);cursor:pointer}
-    .tab[aria-current="page"]{border-color:var(--accent-2)}
     .lang-switch{display:flex;gap:8px}
     .chip{border:1px solid var(--ring);background:var(--card);padding:8px 12px;border-radius:999px;cursor:pointer}
     .chip.active{border-color:var(--accent);box-shadow:0 0 0 3px rgba(107,163,107,.15)}
     main{display:grid;gap:32px;padding-top:24px}
     section{background:var(--card);border:1px solid var(--ring);border-radius:20px;padding:24px}
 
-    /* HERO amb degradat suau en verds */
+    /* HERO */
     .hero{display:grid;gap:12px;text-align:center;padding:40px 24px;border-radius:24px;background:conic-gradient(from 140deg at 50% 50%, #f3f8f3, #ffffff, #edf6ef)}
     .hero h1{margin:0;font-size:clamp(28px,5vw,44px)}
     .hero p{margin:0;color:var(--muted);font-size:clamp(14px,2.4vw,18px)}
+    .cta-wrap{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
     .row{display:grid;gap:24px}
     @media (min-width:768px){.row{grid-template-columns:1fr 1fr}}
     .card{border:1px solid var(--ring);border-radius:16px;padding:20px}
     .kicker{letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-size:12px}
-    .btn{display:inline-block;margin-top:12px;padding:12px 16px;border-radius:12px;border:1px solid var(--accent-2);background:var(--accent);color:white;text-decoration:none}
+    .btn{display:inline-block;margin-top:12px;padding:12px 16px;border-radius:12px;border:1px solid var(--accent-2);background:var(--accent);color:white;text-decoration:none;font-weight:600}
     footer{color:var(--muted);font-size:14px;padding:24px 0}
     .list{padding-left:18px}
     .list li{margin:6px 0}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .muted{color:var(--muted)}
+    .hint{font-size:12px;color:var(--muted)}
 
-    /* --- Frase manuscrita superior --- */
+    /* Frase manuscrita */
     .calligraphy{background:transparent;border:0;padding:12px 0 4px}
     .calligraphy .words{
-      font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive;
-      font-weight:400;
-      text-align:center;
-      color:var(--olive-ink);
-      font-size:clamp(32px,6.2vw,56px);
-      line-height:1.1;
-      letter-spacing:.5px;
+      font-family:"Parisienne", ui-script, "Segoe Script", "Snell Roundhand", cursive;
+      font-weight:400;text-align:center;color:var(--olive-ink);
+      font-size:clamp(32px,6.2vw,56px);line-height:1.1;letter-spacing:.3px;
     }
     .calligraphy .big{
-      font-family:"Great Vibes", ui-script, "Segoe Script", "Snell Roundhand", cursive;
-      font-weight:400; text-align:center; color:var(--olive-ink);
-      font-size:clamp(40px,8vw,84px); line-height:1; margin:0 0 4px; letter-spacing:.6px;
+      font-family:"Parisienne", ui-script, "Segoe Script", "Snell Roundhand", cursive;
+      font-weight:400;text-align:center;color:var(--olive-ink);
+      font-size:clamp(42px,8vw,88px);line-height:1;margin:0 0 4px;letter-spacing:.4px;
     }
 
-    /* --- Slideshow (fijo pero adaptable) --- */
+    /* Slideshow */
     .slideshow { position: relative; border: 1px solid var(--ring); border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
     .slideshow.box { --w: clamp(280px, 60vw, 600px); --h: clamp(280px, 70vw, 600px); inline-size: var(--w); block-size: var(--h); }
     .slideshow-title{ margin: 0 0 12px; font-size: clamp(18px, 2.6vw, 26px); font-weight: 700; text-align: center; }
@@ -86,45 +84,66 @@
     }
     .slideshow img.active{ opacity:1; }
 
-    .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden}
+    .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden;display:grid;place-items:center;min-height:120px;padding:12px}
     .map-wrap iframe{width:100%;height:360px;border:0}
+
+    /* Programa taula */
+    .schedule{width:100%;border-collapse:separate;border-spacing:0 8px}
+    .schedule td{background:white;border:1px solid var(--ring);padding:10px 12px;border-radius:12px}
+    .schedule td.time{white-space:nowrap;font-weight:700}
+
+    /* Prefereix reducció de moviment */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .slideshow img{transition:none}
+    }
   </style>
+  <!-- hreflang si publiques rutes separades
+  <link rel="alternate" hreflang="es" href="https://tu-dominio.com/es">
+  <link rel="alternate" hreflang="ca" href="https://tu-dominio.com/ca">
+  -->
 </head>
 <body>
   <a href="#contenido" class="sr-only">Saltar al contenido</a>
   <header>
     <div class="container nav">
       <div class="brand" data-i18n="brand">Danay y Vicent</div>
-      <div class="lang-switch" role="group" aria-label="Idioma">
-        <button class="chip" data-lang="es" aria-pressed="true">ES</button>
-        <button class="chip" data-lang="ca">VAL</button>
+      <div class="lang-switch" role="group" aria-label="Canviar idioma">
+        <button class="chip" data-lang="es" aria-pressed="true" aria-label="Cambiar a español">ES</button>
+        <button class="chip" data-lang="ca" aria-label="Canviar a valencià">VAL</button>
       </div>
     </div>
   </header>
-  
+
 <main id="contenido" class="container">
-  <!-- Frase manuscrita elegante, damunt del carrusel -->
+  <!-- Frase manuscrita -->
   <section class="calligraphy" id="lema" aria-labelledby="lema-ttl">
     <h2 id="lema-ttl" class="sr-only">Lema</h2>
     <p class="words big" data-i18n="big_title">¡Nos casamos!</p>
     <p class="words" data-i18n="words">Acompáñanos en un día muy especial para nosotros</p>
   </section>
 
-  <!--    RECUADRO DE LAS FOTOS -->
+  <!-- Fotos -->
   <section id="fotos" aria-labelledby="titulo-fotos">
     <h2 id="titulo-fotos" class="sr-only" data-i18n="photos_title">¡ NOS CASAMOS !</h2>
     <div class="slideshow box" aria-live="off">
-      <img id="slideA" alt="Foto 1" loading="lazy" decoding="async" />
-      <img id="slideB" alt="Foto 2" loading="lazy" decoding="async" />
+      <img id="slideA" alt="Foto 1" loading="eager" fetchpriority="high" decoding="async" width="1200" height="1600" />
+      <img id="slideB" alt="Foto 2" loading="lazy" decoding="async" width="1200" height="1600" />
     </div>
+    <p class="hint" data-i18n="photos_note">Consejo: sustituye las rutas del array photos en el script por tus imágenes del repositorio.</p>
   </section>
 
+  <!-- Hero -->
   <section class="hero" id="invitacion">
     <h1 data-i18n="hero_title">Queremos celebrarlo y que nos acompañes en un día muy especial para nosotros</h1>
     <p data-i18n="hero_sub">Hemos reservado una masía en Montcada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial.</p>
-    <a class="btn" href="#contacto" data-i18n="hero_btn">Contacta con nosotros y/o confirma tu asistencia!</a>
+    <div class="cta-wrap">
+      <a class="btn" href="#contacto" data-i18n="hero_btn">Contacta con nosotros y/o confirma tu asistencia!</a>
+      <a id="addCal" class="btn" download="boda-danay-vicent.ics" data-i18n="add_cal_btn">Añadir al calendario</a>
+    </div>
   </section>
 
+  <!-- Invitación + Detalles -->
   <section aria-labelledby="titulo-inv">
     <h2 id="titulo-inv" data-i18n="inv_title">Invitación</h2>
     <div class="row">
@@ -141,24 +160,50 @@
         <p data-i18n="inv_text_2">Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.</p>
         <p data-i18n="inv_text_3">Dinos si quieres traer a alguien contigo, ¡estaremos encantados!</p>
         <p data-i18n="inv_text_4">Confirma tu asistencia antes del <strong>1 de enero</strong>.</p>
+        <p class="muted" data-i18n="kids_welcome">No hay límite de acompañantes y los peques son bienvenidos.</p>
         <a class="btn" href="#contacto" data-i18n="rsvp_btn">Confirmar asistencia</a>
       </div>
     </div>
   </section>
 
-  <!-- Mapa -->
+  <!-- Programa del dia -->
+  <section id="programa" aria-labelledby="titulo-prog">
+    <h2 id="titulo-prog" data-i18n="prog_title">Programa del día</h2>
+    <table class="schedule" aria-describedby="prog-note">
+      <tbody>
+        <tr><td class="time">11:30</td><td data-i18n="prog_welcome">Bienvenida</td></tr>
+        <tr><td class="time">12:00</td><td data-i18n="prog_ceremony">Ceremonia</td></tr>
+        <tr><td class="time">12:40</td><td data-i18n="prog_cocktail">Cóctel</td></tr>
+        <tr><td class="time">14:00</td><td data-i18n="prog_lunch">Comida</td></tr>
+        <tr><td class="time">15:30</td><td data-i18n="prog_tardeo">Tardeo / Cóctel / Sobremesa</td></tr>
+      </tbody>
+    </table>
+    <p id="prog-note" class="hint" data-i18n="prog_note">Los horarios son aproximados.</p>
+  </section>
+
+  <!-- Com arribar -->
   <section id="mapa" aria-labelledby="titulo-mapa">
     <h2 id="titulo-mapa" data-i18n="map_title">Cómo llegar</h2>
-    <div class="map-wrap">
-      <iframe
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen
-        src="https://www.google.com/maps?q=Mas%C3%ADa%20San%20Agust%C3%ADn&output=embed">
-      </iframe>
+    <p class="muted" data-i18n="route_advice">
+      Recomendamos, si es posible, llegar pasando por el pueblo de Moncada para evitar caminos rurales estrechos de doble sentido.
+    </p>
+    <div class="map-wrap" id="mapWrap" aria-label="Mapa de la Masía San Agustín">
+      <button class="btn" id="loadMap" data-i18n="load_map_btn">Cargar mapa</button>
     </div>
   </section>
 
+  <!-- Fotos compartides -->
+  <section id="fotos-compartidas" aria-labelledby="titulo-fc">
+    <h2 id="titulo-fc" data-i18n="share_title">Comparte y descarga fotos</h2>
+    <p data-i18n="share_text">
+      Habilitaremos un Google Drive donde todos los invitados podréis subir vuestras fotos y descargar las que queráis. 
+      También tendremos un fotógrafo de confianza que subirá allí sus fotos.
+    </p>
+    <a class="btn" id="driveLink" href="#" target="_blank" rel="noopener" data-i18n="share_btn">Abrir carpeta de fotos</a>
+    <p class="hint" data-i18n="share_hint">Sustituye el enlace por el de tu carpeta de Google Drive cuando esté lista.</p>
+  </section>
+
+  <!-- Contacte + RSVP -->
   <section id="contacto" aria-labelledby="titulo-ct">
     <h2 id="titulo-ct" data-i18n="ct_title">Contacto</h2>
     <div class="row">
@@ -182,9 +227,25 @@
         <form id="rsvpForm" action="https://formspree.io/f/xqayeqla" method="POST" novalidate>
           <label>
             <span data-i18n="form_name">Nombre</span><br />
-            <input required name="name" type="text" placeholder="Tu nombre" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
+            <input required name="name" type="text" autocomplete="name" placeholder="Tu nombre" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
           </label>
           <br /><br />
+          <label>
+            <span>Email</span><br />
+            <input name="email" type="email" autocomplete="email" placeholder="tu@correo.com" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
+          </label>
+          <br /><br />
+          <label>
+            <span data-i18n="form_guests">Número de acompañantes</span><br />
+            <input name="guests" type="number" min="0" value="0" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
+          </label>
+          <br /><br />
+          <label>
+            <span data-i18n="form_diet">Alergias / Intolerancias / Dietas</span><br />
+            <input name="diet" type="text" placeholder="vegetariano, celíaco, frutos secos, etc." style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px" />
+          </label>
+          <p class="hint" data-i18n="allergy_hint">Por las fechas, si tienes alergias estacionales, te recomendamos llevar tu medicación o remedios a mano.</p>
+          <br />
           <label>
             <span data-i18n="form_msg">Mensaje</span><br />
             <textarea required name="message" rows="4" placeholder="Tu mensaje" aria-required="true" style="width:100%;padding:10px;border:1px solid var(--ring);border-radius:10px"></textarea>
@@ -193,14 +254,14 @@
           <br />
           <button class="btn" type="submit" data-i18n="form_send">Enviar</button>
           <p id="formStatus" role="status" aria-live="polite" style="margin-top:8px;color:var(--muted);font-size:12px"></p>
-          <p style="color:var(--muted);font-size:12px" data-i18n="form_note">El formulario enviará el mensaje al correo configurado.</p>
+          <p class="hint" data-i18n="form_note">El formulario enviará el mensaje al correo configurado.</p>
         </form>
       </div>
     </div>
   </section>
 
   <footer>
-    <p data-i18n="foot">Con ❤️, Nombre & Nombre · 2025</p>
+    <p data-i18n="foot">Con ❤️, Danay & Vicent · 2025</p>
   </footer>
 </main>
 
@@ -209,31 +270,47 @@
 const i18n = {
   es: {
     brand: "Danay y Vicent",
-    tab_inv: "Invitación",
-    tab_cta: "Contacto",
-    kicker: "¡Nos casamos!",
     photos_title: "¡NOS CASAMOS!",
-    hero_title: "Queremos celebrarlo y que nos acompañes en un día muy especial para nosotros",
-    hero_sub: "Hemos reservado una masía en Montcada para vivir un día tranquilo y acogedor en compañía de quienes más queremos. Nuestra intención es que nuestras familias se conozcan y disfruten juntas de una comida casera en un ambiente bonito e íntimo. Más que una boda tradicional, será como una gran comida familiar… pero en un lugar especial.",
-    hero_btn: "Contacta con nosotros y/o confirma tu asistencia!",
+    hero_title: "Nos hace mucha ilusión celebrar este día contigo",
+    hero_sub: "Hemos reservado una masía en Montcada para una comida familiar íntima y bonita. Queremos que nuestras familias se conozcan y disfruten juntas. Más que una boda tradicional, será una gran comida en un lugar especial.",
+    hero_btn: "Contacta con nosotros y/o confirma tu asistencia",
+    add_cal_btn: "Añadir al calendario",
     inv_title: "Invitación",
     inv_text_1: "Nos hace mucha ilusión invitarte a nuestra boda. Será un día lleno de alegría, familia y amigos.",
     when: "Cuándo:",
     where: "Dónde:",
     dress: "Código de vestimenta:",
-    when_val: "Domingo, 3 de mayo de 2026 · 12h",
+    when_val: "Domingo, 3 de mayo de 2026 · 12:00",
     where_val: "Masía San Agustín, Montcada (València).",
-    dress_val: "Esperamos que vengáis cómod@s; os aconsejamos que no os compréis ropa nueva y que vistáis como os queráis ver en las fotos en un futuro.",
+    dress_val: "Ven cómod@; no hace falta ropa nueva. Piensa en cómo te gustaría verte en las fotos.",
     parking: "Parking disponible",
     inv_text_2: "Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.",
     inv_text_3: "Dinos si quieres traer a alguien contigo, ¡estaremos encantados!",
-    inv_text_4: "Confirma tu asistencia antes del <strong>1 de enero</strong>.",
+    inv_text_4: "Confirma tu asistencia antes del <strong>1 de enero de 2026</strong>.",
+    kids_welcome: "No hay límite de acompañantes y los peques son bienvenidos.",
     rsvp_btn: "Confirmar asistencia",
+    prog_title: "Programa del día",
+    prog_welcome: "Bienvenida",
+    prog_ceremony: "Ceremonia",
+    prog_cocktail: "Cóctel",
+    prog_lunch: "Comida",
+    prog_tardeo: "Tardeo / Cóctel / Sobremesa",
+    prog_note: "Los horarios son aproximados.",
+    map_title: "Cómo llegar",
+    route_advice: "Recomendamos, si es posible, llegar pasando por el pueblo de Moncada para evitar caminos rurales estrechos de doble sentido.",
+    load_map_btn: "Cargar mapa",
+    share_title: "Comparte y descarga fotos",
+    share_text: "Habilitaremos un Google Drive donde todos los invitados podréis subir vuestras fotos y descargar las que queráis. También tendremos un fotógrafo de confianza que subirá allí sus fotos.",
+    share_btn: "Abrir carpeta de fotos",
+    share_hint: "Sustituye el enlace por el de tu carpeta de Google Drive cuando esté lista.",
     ct_title: "Contacto",
     ct_text: "Para cualquier duda o para confirmar asistencia:",
     email: "Email:",
     phone: "Teléfono (+34):",
     form_name: "Nombre",
+    form_guests: "Número de acompañantes",
+    form_diet: "Alergias / Intolerancias / Dietas",
+    allergy_hint: "Por las fechas, si tienes alergias estacionales, te recomendamos llevar tu medicación o remedios a mano.",
     form_msg: "Mensaje",
     form_send: "Enviar",
     form_note: "El formulario enviará el mensaje al correo configurado.",
@@ -242,38 +319,53 @@ const i18n = {
     form_required_name: "Por favor, escribe tu nombre.",
     form_required_msg: "Por favor, escribe un mensaje.",
     photos_note: "Consejo: sustituye las rutas del array photos en el script por tus imágenes del repositorio.",
-    map_title: "Cómo llegar",
     foot: "Con ❤️, Danay & Vicent · 2025",
     words: "Acompáñanos en un día muy especial para nosotros",
     big_title: "¡Nos casamos!"
   },
   ca: {
     brand: "Vicent & Danay",
-    tab_inv: "Invitació",
-    tab_cta: "Contacte",
-    kicker: "Ens casem!",
-    photos_title: "ENS CASEM !",
-    hero_title: "Volem celebrar-ho i que ens acompanyes en un dia molt especial per a nosaltres",
-    hero_sub: "Hem reservat una masia a Montcada per a viure un dia tranquil i acollidor amb la companyia de qui més estimem. La nostra intenció és que les nostres famílies es coneguen i gaudisquen juntes d’un dinar casolà en un ambient bonic i íntim. Més que un casament tradicional, serà com un gran dinar familiar… però en un lloc especial.",
-    hero_btn: "Contacta amb nosaltres i/o confirma l’assistència!",
+    photos_title: "ENS CASEM!",
+    hero_title: "Ens fa molta il·lusió celebrar aquest dia amb tu",
+    hero_sub: "Hem reservat una masia a Montcada per a un dinar familiar íntim i bonic. Volem que les nostres famílies es coneguen i gaudisquen juntes. Més que un casament tradicional, serà un gran dinar en un lloc especial.",
+    hero_btn: "Contacta amb nosaltres i/o confirma l’assistència",
+    add_cal_btn: "Afegir al calendari",
     inv_title: "Invitació",
     inv_text_1: "Ens fa molta il·lusió convidar-te a la nostra boda. Serà un dia ple d'alegria, família i amistats.",
     when: "Quan:",
     where: "On:",
     dress: "Codi de vestimenta:",
-    when_val: "Diumenge, 3 de maig de 2026 · 12h",
+    when_val: "Diumenge, 3 de maig de 2026 · 12:00",
     where_val: "Masia Sant Agustí, Montcada (València).",
-    dress_val: "Esperem que vingueu còmodes, vos aconsellem que no compreu roba nova i que vestiu com vulgueu veure-vos en les fotos en un futur.",
+    dress_val: "Vine còmode/a; no cal roba nova. Pensa com t’agradaria veure’t a les fotos.",
     parking: "Aparcament disponible",
     inv_text_2: "Si necessites allotjament o transport, digueu-nos-ho i t'ajudem amb recomanacions.",
     inv_text_3: "Digues si vols dur algú amb tu, estarem encantats!",
-    inv_text_4: "Confirma l'assistència abans del <strong>1 de gener</strong>.",
+    inv_text_4: "Confirma l'assistència abans de l’<strong>1 de gener de 2026</strong>.",
+    kids_welcome: "No hi ha límit d’acompanyants i els menuts són benvinguts.",
     rsvp_btn: "Confirmar assistència",
+    prog_title: "Programa del dia",
+    prog_welcome: "Benvinguda",
+    prog_ceremony: "Cerimònia",
+    prog_cocktail: "Còctel",
+    prog_lunch: "Dinar",
+    prog_tardeo: "Tardeo / Còctel / Sobretaula",
+    prog_note: "Els horaris són aproximats.",
+    map_title: "Com arribar",
+    route_advice: "Recomanem, si és possible, arribar passant pel poble de Moncada per a evitar camins rurals estrets de doble sentit.",
+    load_map_btn: "Carregar mapa",
+    share_title: "Comparteix i descarrega fotos",
+    share_text: "Habilitarem un Google Drive on tots els convidats podreu pujar les vostres fotos i descarregar les que vulgueu. També tindrem un fotògraf de confiança que hi pujarà les seues fotos.",
+    share_btn: "Obrir carpeta de fotos",
+    share_hint: "Substitueix l’enllaç pel de la teua carpeta de Google Drive quan estiga llesta.",
     ct_title: "Contacte",
     ct_text: "Per a qualsevol dubte o per a confirmar assistència:",
     email: "Correu:",
     phone: "Telèfon (+34):",
     form_name: "Nom",
+    form_guests: "Nombre d’acompanyants",
+    form_diet: "Al·lèrgies / Intoleràncies / Dietes",
+    allergy_hint: "Per les dates, si tens al·lèrgies estacionals, recomanem portar la teua medicació o remeis a mà.",
     form_msg: "Missatge",
     form_send: "Enviar",
     form_note: "El formulari enviarà el missatge al correu configurat.",
@@ -282,7 +374,6 @@ const i18n = {
     form_required_name: "Per favor, escriu el teu nom.",
     form_required_msg: "Per favor, escriu un missatge.",
     photos_note: "Consell: substitueix les rutes de l'array photos al script per les teues imatges del repositori.",
-    map_title: "Com arribar",
     foot: "Amb ❤️, Vicent & Danay · 2025",
     words: "Acompanya'ns en un dia molt especial per a nosaltres!",
     big_title: "Ens casem!"
@@ -298,14 +389,15 @@ function setLang(lang){
   $('[data-i18n]').forEach(node => {
     const key = node.getAttribute('data-i18n');
     if (dict[key] !== undefined){
-      if (HTML_KEYS.has(key)) {
-        node.innerHTML = dict[key];
-      } else {
-        node.textContent = dict[key];
-      }
+      if (HTML_KEYS.has(key)) node.innerHTML = dict[key];
+      else node.textContent = dict[key];
     }
   });
-  $('.chip').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+  $('.chip').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
   try{ localStorage.setItem('lang', lang); }catch{}
 }
 
@@ -315,7 +407,6 @@ $('a[href^="#"]').forEach(a=>{
     const id = a.getAttribute('href').slice(1);
     const el = document.getElementById(id);
     if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
-    $('.tab').forEach(t => t.setAttribute('aria-current', t===a ? 'page' : 'false'));
   });
 });
 
@@ -332,37 +423,57 @@ setLang(saved || (navigator.language.startsWith('ca') ? 'ca' : 'es'));
 const form = document.getElementById('rsvpForm');
 const statusEl = document.getElementById('formStatus');
 
+function setStatus(text, isError=false){
+  statusEl.textContent = text;
+  statusEl.setAttribute('role', isError ? 'alert' : 'status');
+}
+
 async function submitForm(event){
   event.preventDefault();
-  statusEl.textContent = '';
+  setStatus('');
   const lang = document.documentElement.lang === 'ca' ? 'ca' : 'es';
   const dict = i18n[lang];
 
   const formData = new FormData(form);
   const name = (formData.get('name')||'').toString().trim();
   const message = (formData.get('message')||'').toString().trim();
-  if(!name){ statusEl.textContent = dict.form_required_name; return; }
-  if(!message){ statusEl.textContent = dict.form_required_msg; return; }
+
+  const nameInput = form.querySelector('input[name="name"]');
+  const msgInput = form.querySelector('textarea[name="message"]');
+
+  let hasError = false;
+  if(!name){
+    setStatus(dict.form_required_name, true);
+    nameInput?.setAttribute('aria-invalid', 'true');
+    hasError = true;
+  } else { nameInput?.removeAttribute('aria-invalid'); }
+
+  if(!message){
+    setStatus(dict.form_required_msg, true);
+    msgInput?.setAttribute('aria-invalid', 'true');
+    hasError = true;
+  } else { msgInput?.removeAttribute('aria-invalid'); }
+
+  if(hasError) return;
 
   const endpoint = form.getAttribute('action');
 
   try{
     const res = await fetch(endpoint, { method:'POST', body: formData, headers: { 'Accept':'application/json' } });
     if(res.ok){
-      statusEl.textContent = dict.form_success;
+      setStatus((dict.form_success), false);
       form.reset();
     } else {
-      statusEl.textContent = dict.form_error;
+      setStatus((dict.form_error), true);
     }
   }catch(err){
-    statusEl.textContent = dict.form_error;
+    setStatus((dict.form_error), true);
   }
 }
-
 form?.addEventListener('submit', submitForm);
 
-// ---- Slideshow amb pre-carrega (suau, sense “parpelleig”) ----
-const photos = [ 'img/IMG-20231228-WA0044.jpg', 'img/IMG-20240824-WA0022.jpg', 'img/IMG-20240824-WA0123.jpg', 'img/IMG_20231118_122548.jpg', 'img/IMG_20231118_131436.jpg', 'img/IMG_20241030_182331.jpg', 'img/WhatsApp Image 2025-09-27 at 10.55.44.jpeg', 'img/WhatsApp Image 2025-09-27 at 10.58.06.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.00.08.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.08.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.13.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.17.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.18.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.19.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.03.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.04.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.05.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.06.jpeg' ];
+// ---- Slideshow amb pre-carrega ----
+const photos = [ 'img/IMG-20231228-WA0044.jpg', 'img/IMG-20240824-WA0022.jpg', 'img/IMG-20240824-WA0123.jpg', 'img/IMG_20231118_122548.jpg', 'img_20231118_131436.jpg', 'img/IMG_20241030_182331.jpg', 'img/WhatsApp Image 2025-09-27 at 10.55.44.jpeg', 'img/WhatsApp Image 2025-09-27 at 10.58.06.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.00.08.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.08.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.13.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.17.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.18.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.07.19.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.03.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.04.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.05.jpeg', 'img/WhatsApp Image 2025-09-27 at 11.13.06.jpeg' ];
 const imgA = document.getElementById('slideA');
 const imgB = document.getElementById('slideB');
 let idx = 0, showingA = true;
@@ -375,7 +486,7 @@ function swap(){
   const preloader = new Image();
   preloader.decoding = 'async';
   preloader.onload = () => {
-    setImg(target, photos[next]);            // solo cambiamos src cuando YA cargó
+    setImg(target, photos[next]);            // canvi de src quan JA ha carregat
     if (showingA){ target.classList.add('active'); imgA.classList.remove('active'); }
     else { target.classList.add('active'); imgB.classList.remove('active'); }
     idx = next; showingA = !showingA;
@@ -383,11 +494,44 @@ function swap(){
   preloader.src = photos[next];
 }
 
-// Inicializa
+// Inicialitza
 if (photos.length){ setImg(imgA, photos[0]); imgA.classList.add('active'); }
 if (photos.length>1){ setImg(imgB, photos[1]); idx = 1; showingA = false; }
-// Relevo cada 5s si hay más de 1 foto
 if (photos.length>1){ setInterval(swap, 5000); }
+
+// ---- Botó "Afegir al calendari" (ICS) ----
+const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DanayVicent//Wedding//ES
+BEGIN:VEVENT
+UID:wedding-20260503T113000@danay-vicent
+DTSTAMP:20240928T000000Z
+DTSTART:20260503T113000
+DTEND:20260503T183000
+SUMMARY:Boda — Danay & Vicent
+LOCATION:Masía San Agustín, Montcada (València)
+DESCRIPTION:Nos casamos. Programa aproximado: 11:30 Bienvenida; 12:00 Ceremonia; 12:40 Cóctel; 14:00 Comida; 15:30 Tardeo/Sobremesa. Cómo llegar: recomendamos pasar por Moncada para evitar caminos rurales estrechos.
+URL:https://www.google.com/maps?q=Mas%C3%ADa%20San%20Agust%C3%ADn
+END:VEVENT
+END:VCALENDAR`.replace(/\\n/g, "\\r\\n");
+const addCal = document.getElementById('addCal');
+if (addCal){
+  const blob = new Blob([icsContent], {type:'text/calendar'});
+  addCal.href = URL.createObjectURL(blob);
+}
+
+// ---- Mapa lazy ----
+document.getElementById('loadMap')?.addEventListener('click', ()=>{
+  const iframe = document.createElement('iframe');
+  iframe.loading = 'lazy';
+  iframe.referrerPolicy = 'no-referrer-when-downgrade';
+  iframe.allowFullscreen = true;
+  iframe.src = 'https://www.google.com/maps?q=Mas%C3%ADa%20San%20Agust%C3%ADn&output=embed';
+  iframe.style.width='100%'; iframe.style.height='360px'; iframe.style.border='0';
+  const wrap = document.getElementById('mapWrap');
+  wrap.innerHTML = '';
+  wrap.appendChild(iframe);
+});
 </script>
 </body>
 </html>
