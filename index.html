@@ -74,7 +74,7 @@
     .slideshow { position: relative; border: 1px solid var(--ring); border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
     .slideshow.box { --w: clamp(280px, 60vw, 600px); --h: clamp(280px, 70vw, 600px); inline-size: var(--w); block-size: var(--h); }
     .slideshow-title{ margin: 0 0 12px; font-size: clamp(18px, 2.6vw, 26px); font-weight: 700; text-align: center; }
-    .slideshow img{ position:absolute; inset:0; width:100%; height:100%; object-fit: contain; object-position: center; opacity:0; transition: opacity .8s; }
+    .slideshow img{ position:absolute; inset:0; width:100%; height:100%; object-fit: contain; object-position: center; opacity:0; transition: opacity .8s; will-change: opacity; backface-visibility: hidden; }
     .slideshow img.active{ opacity:1; }
 
     .map-wrap{border:1px solid var(--ring);border-radius:16px;overflow:hidden}
@@ -223,7 +223,7 @@ const i18n = {
     parking: "Parking disponible",
     inv_text_2: "Si necesitas alojamiento o transporte, háznoslo saber y te ayudamos con recomendaciones.",
     inv_text_3: "Dinos si quieres traer a alguien contigo, estaremos encantados!",
-    inv_text_4: "Confirma tu asistencia antes del ",
+    inv_text_4: "Confirma tu asistencia antes del <strong>1 de enero</strong>.",
     rsvp_btn: "Confirmar asistencia",
     ct_title: "Contacto",
     ct_text: "Para cualquier duda o para confirmar asistencia:",
@@ -263,7 +263,7 @@ const i18n = {
     parking: "Aparcament disponible",
     inv_text_3: "Digues si vols dur algú amb tu, estarem encantats!",
     inv_text_2: "Si necessites allotjament o transport, digueu-nos-ho i t'ajudem amb recomanacions.",
-    inv_text_4: "Confirma l'assistència abans de l'.",
+    inv_text_4: "Confirma l'assistència abans del <strong>1 de gener</strong>.",
     rsvp_btn: "Confirmar assistència",
     ct_title: "Contacte",
     ct_text: "Per a qualsevol dubte o per a confirmar assistència:",
@@ -293,11 +293,10 @@ function setLang(lang){
   $('[data-i18n]').forEach(node => {
     const key = node.getAttribute('data-i18n');
     if (dict[key] !== undefined){
-      if (key === 'inv_text_4') {
-        const fecha = lang === 'ca' ? '1 de gener' : '1 de enero';
-        node.innerHTML = dict[key] + '<strong>' + fecha + '</strong>.';
+      if (HTML_KEYS.has(key)) {
+        node.innerHTML = dict[key];   // permet HTML
       } else {
-        node.textContent = dict[key];
+        node.textContent = dict[key]; // text pla
       }
     }
   });
@@ -385,10 +384,18 @@ let idx = 0, showingA = true;
 function setImg(img, url){ img.src = url; }
 function swap(){
   const next = (idx + 1) % photos.length;
-  if (showingA){ setImg(imgB, photos[next]); imgB.classList.add('active'); imgA.classList.remove('active'); }
-  else { setImg(imgA, photos[next]); imgA.classList.add('active'); imgB.classList.remove('active'); }
-  idx = next; showingA = !showingA;
+  const target = showingA ? imgB : imgA; // la que entra
+  const preloader = new Image();
+  preloader.decoding = 'async';
+  preloader.onload = () => {
+    setImg(target, photos[next]);            // posem el src quan JA està carregada
+    if (showingA){ target.classList.add('active'); imgA.classList.remove('active'); }
+    else { target.classList.add('active'); imgB.classList.remove('active'); }
+    idx = next; showingA = !showingA;
+  };
+  preloader.src = photos[next];
 }
+
 // Inicializa
 if (photos.length){ setImg(imgA, photos[0]); imgA.classList.add('active'); }
 if (photos.length>1){ setImg(imgB, photos[1]); idx = 1; showingA = false; }
