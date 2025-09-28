@@ -15,8 +15,8 @@
   <style>
     :root{
       /* Paleta oliva suau */
-      --bg:#f1f5f1;           /* fons verd oliva molt clar */
-      --card:#ffffff;         /* targetes */
+      --bg:#eef3ea;           /* fons verd oliva molt clar */
+      --card:#f5f7f3;         /* targetes */
       --ink:#1d1d1f;          /* text principal */
       --muted:#66736a;        /* text mut */
       --accent:#6ba36b;       /* botó/accents verds */
@@ -67,8 +67,6 @@
       line-height:1.1;
       letter-spacing:.5px;
     }
-    .calligraphy .divider{margin-top:6px;height:10px;display:flex;align-items:center;justify-content:center}
-    .calligraphy .divider::before{content:"✿"; opacity:.4; font-size:14px}
 
     /* --- Slideshow (Opción 2: “fijo” pero adaptable) --- */
     .slideshow { position: relative; border: 1px solid var(--ring); border-radius: 16px; overflow: hidden; background: var(--card); margin-inline: auto; }
@@ -97,7 +95,7 @@
   <!-- Frase manuscrita eleganta, damunt del carrusel -->
   <section class="calligraphy" id="lema" aria-labelledby="lema-ttl">
     <h2 id="lema-ttl" class="sr-only">Lema</h2>
-    <p class="words" data-i18n="words">Amor · Familia · Celebración</p>
+    <p class="words" data-i18n="words">¡Acompañanos en un dia muy especial para nosotros!</p>
     <div class="divider" aria-hidden="true"></div>
   </section>
 
@@ -237,7 +235,7 @@ const i18n = {
     photos_note: "Consejo: sustituye las rutas del array photos en el script por tus imágenes del repositorio.",
     map_title: "Cómo llegar",
     foot: "Con ❤️, Danay & Vicent · 2025",
-    words: "Amor · Familia · Celebración"
+    words: "¡Acompañanos en un dia muy especial para nosotros!"
   },
   ca: {
     brand: "Vicent & Danay",
@@ -275,7 +273,7 @@ const i18n = {
     photos_note: "Consell: substitueix les rutes de l'array photos al script per les teues imatges del repositori.",
     map_title: "Com arribar",
     foot: "Amb ❤️, Vicent & Danay · 2025",
-    words: "Amor · Família · Celebració"
+    words: "Acompanyans en un dia molt especial per nosaltres!"
   }
 };
 
